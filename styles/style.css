@@ -241,4 +241,7 @@ footer {
     border-right: none;
     margin-bottom: 5px;
   }
+  #skills-container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
