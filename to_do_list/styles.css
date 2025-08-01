@@ -1,0 +1,111 @@
+ :root {
+   font-size: 20px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: #a3b18a;
+}
+
+input[type="text"], button {
+  font-size: 1rem;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+.done-task{
+  text-decoration: line-through;
+}
+
+/* Resetowanie domyślnych styli przeglądarki */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Styl ogólny strony */
+body {
+  background-color: #f0f2f5;
+  color: #333;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Nagłówek */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Sekcja dodawania zadań */
+#add-task-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#add-task-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+#add-task-button {
+  padding: 10px 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#add-task-button:hover {
+  background-color: #2980b9;
+}
+
+/* Lista zadań */
+#to-do-items-list section {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#to-do-items-list input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#to-do-items-list label {
+  flex: 1;
+  font-size: 16px;
+}
+
+/* Styl ukończonego zadania */
+.done-task {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Przycisk usuwania */
+.remove-task-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.remove-task-btn:hover {
+  background-color: #c0392b;
+}
