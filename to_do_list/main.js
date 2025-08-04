@@ -2,19 +2,18 @@
 [x] Ładowanie zadań z local Storage, jeżeli nie ma danych to tworzymy     nową tablice
 [x]Dodawanie zadań z aktualizacją w local storage
 [x]Czyszczenie inputa
-Odznaczanie zadań
-Usuwanie zadań z aktualizacją w local storage
+[x]Odznaczanie zadań
+[x]Usuwanie zadań z aktualizacją w local storage
 */
 
 const addTaskInput = document.getElementById('add-task-input');
 const addBtn = document.getElementById('add-task-button');
 const toDoItemsListElm = document.getElementById('to-do-items-list');
 const removeTaskBtns = document.querySelectorAll('.remove-task-btn');
-//przechowywać będzie obiekty które mają id i nazwę
 
+//przechowywać będzie obiekty które mają id i nazwę
 let toDoList = [];
 if(localStorage.getItem('todolist')) {
-  //dodaj wszystkie elementy z listy do html(DOM)
   toDoList = JSON.parse(localStorage.getItem('todolist'));
   console.log(typeof toDoList);
   if(toDoList.length >= 1){
@@ -67,17 +66,18 @@ function addTask(){
 
 toDoItemsListElm.addEventListener('click', (event) => {
   if (event.target.classList.contains('remove-task-btn')) {
-   let sectionElm = event.target.parentElement;
-   const sectionID = sectionElm.id;
+    let sectionElm = event.target.parentElement;
+    const sectionID = sectionElm.id;
 
    //console.log('kliknieto przycisk w sekcji:', sectionID);
 
-   const taskID = parseInt(sectionID.replace('to-do-item-', ''));
+    const taskID = parseInt(sectionID.replace('to-do-item-', ''));
 
-   sectionElm.remove();
+    sectionElm.remove();
 
-  toDoList = toDoList.filter(task => task.taskID !== taskID);
-  localStorage.setItem('todolist', JSON.stringify(toDoList));
+    //zwraca elementy które nie mają id takiego samego jak ten do usunięcia
+    toDoList = toDoList.filter(task => task.taskID !== taskID);
+    localStorage.setItem('todolist', JSON.stringify(toDoList));
   }
 });
 
@@ -93,6 +93,7 @@ toDoItemsListElm.addEventListener('click', (e) => {
 
     if(checkboxLabel.classList.contains('done-task')){
       checkboxLabel.classList.remove('done-task');
+      //-1 bo indexy są od 0 a id jest od 1 
       toDoList[taskID - 1].isTaskDone = false; 
       localStorage.setItem('todolist', JSON.stringify(toDoList));
     } else {
